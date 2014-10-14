@@ -2,15 +2,17 @@
 //  CoreLogger.m
 //  TestLogger
 //
+//  Wrapper class for CocoaLumberjack
 //  Created by Scott Hermes on 10/13/14.
 //  Copyright (c) 2014 Solstice. All rights reserved.
 //
 
 #import "CoreLogger.h"
 #import "CustomFormatter.h"
-static NSString *appTag = @"#PP7";
-static NSString *verboseTag = @"#verbose";
-static NSString *errorTag = @"#error";
+#import "CrashlyticsLogger.h"
+//static NSString *appTag = @"#PP7";
+//static NSString *verboseTag = @"#verbose";
+//static NSString *errorTag = @"#error";
 @implementation CoreLogger
 + (void) initLogging{
     // Always log to system console
@@ -28,6 +30,9 @@ static NSString *errorTag = @"#error";
     [[fileLogger logFileManager] setMaximumNumberOfLogFiles:5];
     [fileLogger setLogFormatter:formatter];
     [DDLog addLogger:fileLogger];
+    
+    
+    [DDLog addLogger:[[CrashlyticsLogger alloc] init] ];
 #endif
 }
 
