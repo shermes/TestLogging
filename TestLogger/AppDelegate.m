@@ -17,7 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Override point for customization after application launch.
-    [CoreLogger initLogging];
+    [CoreLogger initLogging:(InitializeLoggerDegugWindow|InitializeLoggerCrashlytics)];
     [CoreLogger NTLogVerbose:@"didFinishLaunchingWithOptions"];
     return YES;
 }

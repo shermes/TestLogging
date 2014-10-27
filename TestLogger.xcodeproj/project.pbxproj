@@ -61,6 +61,7 @@
 		91BA125A19ED7F390041847A /* CrashlyticsLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashlyticsLogger.m; sourceTree = "<group>"; };
 		C1E64228E63F9339377182C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E3EB1D27F209C51F22D1F9CB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EE14AAD119FED32F001DB93F /* libPods-CocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CocoaLumberjack.a"; path = "Pods/build/Debug-iphoneos/libPods-CocoaLumberjack.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +168,7 @@
 		C08BD75B3DF629775540D56A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE14AAD119FED32F001DB93F /* libPods-CocoaLumberjack.a */,
 				9141EE2B19ED8863004FB907 /* Crashlytics.framework */,
 				18E495EC2F638EE358B77A11 /* libPods.a */,
 			);
@@ -466,6 +468,10 @@
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = TestLogger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d6d01bbd-ee1b-4e80-9bfb-1c4f04875d70";
 			};
@@ -485,6 +491,10 @@
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = TestLogger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d6d01bbd-ee1b-4e80-9bfb-1c4f04875d70";
 			};

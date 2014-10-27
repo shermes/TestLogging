@@ -10,6 +10,11 @@
 #import <Crashlytics/Crashlytics.h>
 
 @implementation CrashlyticsLogger
+- (CrashlyticsLogger *) init{
+    self = [super init];
+    [Crashlytics startWithAPIKey:@"a12568c0b92f1f19a8e79e4187c23ca28bacfec3"];
+    return self;
+}
 
 - (void)logMessage:(DDLogMessage *)msg{
     NSString *logMsg = msg->logMsg;
