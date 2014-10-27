@@ -24,7 +24,7 @@
     // NCLOG will also print filename and line #
     NCLog(@"This is NCLOG");
     // Call NT Logger via macro
-    NTLogVerbose(@"Test of NT Log macro");
+    NTLogVerbose(@"Test of NT Log macro %@", @"does this appear");
     // Macro that logs class and methods name
     LOG_CLASS_AND_METHOD_NAME();
     // force a crash

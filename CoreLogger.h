@@ -19,7 +19,8 @@ static int ddLogLevel = LOG_LEVEL_ERROR;
 #define NCLog(s, ...) NSLog(@"<%@:%d> %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], \
 __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__])
 #define LOG_CLASS_AND_METHOD_NAME()  NSLog(@"%@: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-#define NTLogVerbose(s) [CoreLogger NTLogVerbose:s]
+// #define NTLogVerbose(s) [CoreLogger NTLogVerbose:s]
+#define NTLogVerbose(fmt,...) [CoreLogger NTLogVerbose:fmt, ## __VA_ARGS__]
 
 // Define options for enabling loggers at init
 typedef NS_OPTIONS(NSUInteger, LoggerToInitialize) {
@@ -32,7 +33,8 @@ typedef NS_OPTIONS(NSUInteger, LoggerToInitialize) {
 @interface CoreLogger : NSObject
 + (void) initLogging;
 + (void) initLogging:(LoggerToInitialize) loggersToInitialize;
-+ (void) NTLogVerbose:(NSString *)msg;
+//+ (void) NTLogVerbose:(NSString *)msg;
++ (void) NTLogVerbose:(NSString *)fmt, ... ;
 + (void) NTLogError:(NSString *)msg;
 
 @end

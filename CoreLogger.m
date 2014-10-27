@@ -44,9 +44,19 @@
     
 }
 
-+ (void) NTLogVerbose:(NSString *)msg{
-    DDLogVerbose(msg);
+//+ (void) NTLogVerbose:(NSString *)msg{
+//    DDLogVerbose(msg);
+//}
++ (void) NTLogVerbose:(NSString *)fmt, ...{
+    va_list args;
+    if (fmt) {
+        va_start(args, fmt);
+        NSString *logMsg = [[NSString alloc] initWithFormat:fmt arguments:args];
+        va_end(args);
+        DDLogVerbose(logMsg);
+    }
 }
+
 + (void) NTLogError:(NSString *)msg{
     DDLogError(msg);
 }
