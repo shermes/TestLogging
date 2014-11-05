@@ -22,7 +22,9 @@ __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__])
 // #define NTLogVerbose(s) [CoreLogger NTLogVerbose:s]
 #define NTLogVerbose(fmt,...) [CoreLogger NTLogVerbose:fmt, ## __VA_ARGS__]
 
-// Define options for enabling loggers at init
+/**
+ Options for enabling loggers at init
+ */
 typedef NS_OPTIONS(NSUInteger, LoggerToInitialize) {
     InitializeLoggerNone        = 0,
     InitializeLoggerDegugWindow = 1 << 0,
@@ -31,10 +33,21 @@ typedef NS_OPTIONS(NSUInteger, LoggerToInitialize) {
     InitializeLoggerCrashlytics = 1 << 3
 };
 @interface CoreLogger : NSObject
+/**
+        Initialize all loggers
+ */
 + (void) initLogging;
+/**
+        Initialize selected loggers
+*/
 + (void) initLogging:(LoggerToInitialize) loggersToInitialize;
-//+ (void) NTLogVerbose:(NSString *)msg;
+/**
+Log a verbose message
+ */
 + (void) NTLogVerbose:(NSString *)fmt, ... ;
+/**
+ Log an error message
+ */
 + (void) NTLogError:(NSString *)msg;
 
 @end
