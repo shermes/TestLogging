@@ -15,16 +15,24 @@
 
 @implementation ViewController
 - (IBAction)buttonClick:(id)sender {
-    // Call once
+    // Call class without using macro
     [CoreLogger NTLogError:@"This is an error"];
+    // Calling crashlytics logging directly
     CLSLog(@"This is a message from CLSLog");
+    // Call crashlytics log that also calls NS log
     CLSNSLog(@"This is a message from CLS NS Log");
+    // NCLOG will also print filename and line #
+    NCLog(@"This is NCLOG");
+    // Call NT Logger via macro
+    NTLogVerbose(@"Test of NT Log macro %@", @"does this appear");
+    // Macro that logs class and methods name
+    LOG_CLASS_AND_METHOD_NAME();
+    // force a crash
     [[Crashlytics sharedInstance] crash];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [Crashlytics startWithAPIKey:@"a12568c0b92f1f19a8e79e4187c23ca28bacfec3"];
     // Do any additional setup after loading the view, typically from a nib.
     [CoreLogger NTLogVerbose:@"This is JUST A MESSAGE"];
     // NSError* error;
